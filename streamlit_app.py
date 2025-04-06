@@ -38,8 +38,10 @@ if st.button("Get Recommendations", type="primary"):
     if query:
         try:
             # Make API request
+            # Use deployed URL for production
+            API_URL = "https://shl-assessment-recommender.onrender.com"
             response = requests.post(
-                "http://localhost:8000/recommend",
+                f"{API_URL}/recommend",
                 json={"text": query, "max_duration": max_duration}
             )
             
